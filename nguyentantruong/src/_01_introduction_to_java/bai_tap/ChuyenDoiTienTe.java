@@ -1,6 +1,4 @@
-package introduction_to_java.bai_tap;
-
-import com.sun.org.apache.bcel.internal.Const;
+package _01_introduction_to_java.bai_tap;
 
 import java.util.Scanner;
 
