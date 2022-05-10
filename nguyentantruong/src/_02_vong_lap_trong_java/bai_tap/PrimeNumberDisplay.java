@@ -1,6 +1,6 @@
 package _02_vong_lap_trong_java.bai_tap;
 
-public class HienThi20SoNguyenTo {
+public class PrimeNumberDisplay {
     public static void main(String[] args) {
         int count = 0;
         int n = 0;

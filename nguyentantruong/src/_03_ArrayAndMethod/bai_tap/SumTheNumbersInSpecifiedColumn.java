@@ -2,7 +2,7 @@ package _03_ArrayAndMethod.bai_tap;
 
 import java.util.Scanner;
 
-public class Bai6 {
+public class SumTheNumbersInSpecifiedColumn {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter array length: ");

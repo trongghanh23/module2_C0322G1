@@ -2,7 +2,7 @@ package _02_vong_lap_trong_java.bai_tap;
 
 import java.util.Scanner;
 
-public class HienThiHinh {
+public class ShowPicture {
     public static void main(String[] args) {
 
         int width;
@@ -33,8 +33,6 @@ public class HienThiHinh {
             }
 
         }
-
-
         System.out.println();
         int heightTG;
         System.out.println("nhập vào chiều cao hình tam giác height:");

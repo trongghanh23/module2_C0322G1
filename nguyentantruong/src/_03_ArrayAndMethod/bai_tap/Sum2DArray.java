@@ -2,7 +2,7 @@ package _03_ArrayAndMethod.bai_tap;
 
 import java.util.Scanner;
 
-public class Bai7 {
+public class Sum2DArray {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter the length of the 2-D array:");

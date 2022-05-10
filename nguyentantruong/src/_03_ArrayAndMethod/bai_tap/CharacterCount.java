@@ -2,7 +2,7 @@ package _03_ArrayAndMethod.bai_tap;
 
 import java.util.Scanner;
 
-public class Bai8 {
+public class CharacterCount {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String character= "ki tu xuat hien trong chuoi";
@@ -18,5 +18,7 @@ public class Bai8 {
         }
         System.out.println("character " + character);
         System.out.println("character " + str + " appear " + count );
+
+
     }
 }

@@ -1,6 +1,6 @@
 package _02_vong_lap_trong_java.bai_tap;
 
-public class HienThiSNTNhoHon100 {
+public class DisplayPrimesLessThan100 {
     public static void main(String[] args) {
         for (int i = 0; i <= 100; i++) {
             boolean flag = true;

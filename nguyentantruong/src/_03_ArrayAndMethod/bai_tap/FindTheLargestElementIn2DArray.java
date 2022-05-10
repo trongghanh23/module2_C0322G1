@@ -2,7 +2,7 @@ package _03_ArrayAndMethod.bai_tap;
 
 import java.util.Scanner;
 
-public class Bai4 {
+public class FindTheLargestElementIn2DArray {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter array length: ");
