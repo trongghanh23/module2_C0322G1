@@ -24,16 +24,18 @@ public class StopWatch {
         this.endTime = endTime;
     }
 
-   public void  start(){
+    public void start() {
         setStartTime(System.currentTimeMillis());
-   }
-   public void  stop(){
-        setEndTime(System.currentTimeMillis());
-   }
-   public long getElapsedTime(){
-        return getStartTime()-getEndTime();
+    }
 
-   }
+    public void stop() {
+        setEndTime(System.currentTimeMillis());
+    }
+
+    public long getElapsedTime() {
+        return getStartTime() - getEndTime();
+
+    }
 
 }
 
