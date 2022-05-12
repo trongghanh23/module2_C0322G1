@@ -31,7 +31,8 @@ public class Square extends Rectangle{
         setSide(length);
     }
 
-    @Override
+
+        @Override
     public String toString() {
         return "A Square with side="
                 + getSide()

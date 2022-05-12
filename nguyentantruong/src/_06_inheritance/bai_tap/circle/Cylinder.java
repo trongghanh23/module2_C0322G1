@@ -1,8 +1,9 @@
-package _06_inheritance.bai_tap;
+package _06_inheritance.bai_tap.circle;
 
-public class Cylinder extends Circle{
+public class Cylinder extends Circle {
     double height;
-    public Cylinder(){
+
+    public Cylinder() {
 
     }
 
@@ -22,17 +23,16 @@ public class Cylinder extends Circle{
     public void setHeight(double height) {
         this.height = height;
     }
-    public double getVolume(){
-        return getPI()*getRadius()*2*getHeight();
+
+    public double getVolume() {
+        return Math.PI * getRadius() * 2 * getHeight();
     }
 
     @Override
     public String toString() {
         return "Cylinder{" +
-                "radius=" + radius +
-                ", PI=" + PI +
-                ", color='" + color + '\'' +
-                ", height=" + height +
+                "height=" + height +
+                super.toString() +
                 '}';
     }
 }
