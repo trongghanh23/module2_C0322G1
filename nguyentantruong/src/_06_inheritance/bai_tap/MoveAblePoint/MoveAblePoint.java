@@ -52,10 +52,6 @@ public class MoveAblePoint extends Point {
 
     @Override
     public String toString() {
-        return "MoveAblePoint{" +
-                "xSpeed=" + xSpeed +
-                ", ySpeed=" + ySpeed +
-                super.toString() +
-                '}';
+        return "(" + xSpeed + "," + ySpeed +","+super.toString()+ ")";
     }
 }

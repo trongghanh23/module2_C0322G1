@@ -1,8 +1,8 @@
 package _06_inheritance.bai_tap.circle;
 
 public class Circle {
-    double radius;
-    String color;
+   private double radius;
+   private String color;
 
     public Circle() {
 
