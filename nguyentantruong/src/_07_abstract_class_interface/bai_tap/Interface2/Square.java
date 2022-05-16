@@ -1,6 +1,6 @@
 package _07_abstract_class_interface.bai_tap.Interface2;
 
-public class Square extends Rectangle implements Colorable{
+public class Square extends Rectangle implements Colorable {
     public Square() {
     }
 

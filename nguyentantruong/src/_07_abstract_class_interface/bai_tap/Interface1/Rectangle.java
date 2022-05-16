@@ -33,6 +33,7 @@ public class Rectangle extends Shape implements Resizeable {
     public void setLength(double length) {
         this.length = length;
     }
+
     public double getArea() {
         return width * this.length;
     }
@@ -46,13 +47,13 @@ public class Rectangle extends Shape implements Resizeable {
         return "Rectangle{" +
                 "width=" + width +
                 ", length=" + length +
-                super.toString()+
+                super.toString() +
                 '}';
     }
 
     @Override
     public void resize(double percent) {
-        setWidth(getWidth()*percent/100);
-        setLength(getLength()*percent/100);
+        setWidth(getWidth() * percent / 100);
+        setLength(getLength() * percent / 100);
     }
 }

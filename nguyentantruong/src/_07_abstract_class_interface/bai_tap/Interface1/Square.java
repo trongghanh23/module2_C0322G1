@@ -19,22 +19,23 @@ public class Square extends Shape implements Resizeable {
     }
 
     public double getArea() {
-        return Math.pow(edge,2);
+        return Math.pow(edge, 2);
     }
 
     public double getPerimeter() {
-        return edge*4;
+        return edge * 4;
     }
+
     @Override
     public String toString() {
         return "Square{" +
                 "edge=" + edge +
-                super.toString()+
+                super.toString() +
                 '}';
     }
 
     @Override
     public void resize(double percent) {
-       
+
     }
 }
