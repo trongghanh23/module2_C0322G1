@@ -1,8 +1,6 @@
-package _07_abstract_class_interface.thuc_hanh.iterface_comparable;
+package _07_abstract_class_interface.bai_tap.Interface1;
 
-import _07_abstract_class_interface.thuc_hanh.iterface_comparable.Shape;
-
-public class Circle extends Shape {
+public class Circle extends Shape implements Resizeable {
     private double radius = 1.0;
 
     public Circle() {
@@ -39,5 +37,10 @@ public class Circle extends Shape {
                 + getRadius()
                 + ", which is a subclass of "
                 + super.toString();
+    }
+
+    @Override
+    public void resize(double percent) {
+        setRadius(getRadius()*percent/100);
     }
 }
