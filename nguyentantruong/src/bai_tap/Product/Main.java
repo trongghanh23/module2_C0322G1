@@ -1,7 +1,5 @@
-package bai_tap;
+package bai_tap.Product;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -11,8 +9,8 @@ public class Main {
      static {
         System.out.println("Block static");
         productList[0]=new Product(1,"iPhone",1000,10,"apple");
-        productList[1]=new Product(2,"Samsung",2000,10,"apple");
-        productList[2]=new Product(3,"iPhone",3000,10,"apple");
+        productList[1]=new Product(2,"Samsung",2000,10,"dell");
+        productList[2]=new Product(3,"oppo",3000,10,"china");
         productList[3]=new Product(4,"iPhone",4000,10,"apple");
         productList[4]=new Product(5,"iPhone",5000,10,"apple");
         count=5;
