@@ -1,21 +1,24 @@
 package _07_abstract_class_interface.bai_tap.Interface2;
 
-public class Circle extends Shape {
-    private double radius = 1.0;
+public class Rectangle extends Shape{
+    private double width = 1.0;
+    private double length = 1.0;
 
-    public Circle() {
+    public Rectangle() {
     }
 
-    public Circle(double radius) {
-        this.radius = radius;
+    public Rectangle(double width, double length) {
+        this.width = width;
+        this.length = length;
     }
 
-    public Circle(String color, boolean filled, double radius) {
+    public Rectangle(String color, boolean filled, double width, double length) {
         super(color, filled);
-        this.radius = radius;
+        this.width = width;
+        this.length = length;
     }
 
-    public Circle(String color, boolean filled) {
+    public Rectangle(String color, boolean filled) {
         super(color, filled);
     }
 
