@@ -1,39 +1,49 @@
 package demo;
 
-public abstract class Animal {
-    private int foot;
-    private int tail;
+public class Animal {
+    int id;
+    String name;
+    int age;
 
     public Animal() {
     }
 
-    public Animal(int foot, int tail) {
-        this.foot = foot;
-        this.tail = tail;
-    }
-    public abstract void eat();
-
-    public int getFoot() {
-        return foot;
+    public Animal(int id, String name, int age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
     }
 
-    public void setFoot(int foot) {
-        this.foot = foot;
+    public int getId() {
+        return id;
     }
 
-    public int getTail() {
-        return tail;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setTail(int tail) {
-        this.tail = tail;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     @Override
     public String toString() {
         return "Animal{" +
-                "foot=" + foot +
-                ", tail=" + tail +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
                 '}';
     }
 }

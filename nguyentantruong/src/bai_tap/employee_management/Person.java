@@ -1,10 +1,10 @@
 package bai_tap.employee_management;
 
 public class Person {
-    int id;
-    String name;
-    int age;
-    Boolean gender;
+    private int id;
+    private String name;
+    private int age;
+    private Boolean gender;
 
     public Person() {
     }

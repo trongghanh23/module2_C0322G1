@@ -3,7 +3,7 @@ package bai_tap.employee_management;
 import bai_tap.employee_management.Person;
 
 public class Teacher extends Person {
-double salary;
+    private double salary;
 
     public Teacher() {
     }

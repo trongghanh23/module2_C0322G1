@@ -3,7 +3,7 @@ package bai_tap.employee_management;
 import bai_tap.employee_management.Person;
 
 public class Student extends Person {
-    double point;
+    private double point;
 
     public Student() {
     }
