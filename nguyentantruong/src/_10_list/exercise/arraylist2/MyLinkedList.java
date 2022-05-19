@@ -17,7 +17,6 @@ public class MyLinkedList {
             return this.data;
         }
     }
-
     public MyLinkedList(Object data) {
         head = new Node(data);
     }
