@@ -5,7 +5,6 @@ public class Person {
     private Boolean gender;
     private String Date;
 
-
     public Person() {
     }
 
@@ -39,4 +38,12 @@ public class Person {
         Date = date;
     }
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", gender=" + gender +
+                ", Date='" + Date + '\'' +
+                '}';
+    }
 }
