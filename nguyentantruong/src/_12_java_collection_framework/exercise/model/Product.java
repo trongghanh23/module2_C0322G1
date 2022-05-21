@@ -1,6 +1,6 @@
 package _12_java_collection_framework.exercise.model;
 
-public class Product implements Comparable<Product> {
+public class Product  {
     private int id;
     private String nameProduct;
     private double price;
@@ -69,33 +69,4 @@ public class Product implements Comparable<Product> {
                 '}';
     }
 
-    @Override
-    public int hashCode() {
-        return this.id;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        } else {
-            Product product = (Product) obj;
-            if (product.getId() == this.id) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-    }
-
-    @Override
-    public int compareTo(Product o) {
-        if (this.getId() > o.getId()) {
-            return 1;
-        } else if (this.getId() < o.getId()) {
-            return -1;
-        } else {
-            return 0;
-        }
-    }
 }

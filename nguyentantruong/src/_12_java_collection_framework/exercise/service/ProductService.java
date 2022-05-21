@@ -14,12 +14,12 @@ public class ProductService implements IProductService {
     static List<Product> productList = new ArrayList<>();
 
     static {
-        productList.add(new Product(1, "dell", 6000000, 2, "dell"));
-        productList.add(new Product(2, "macbook", 12000000, 3, "Apple"));
-        productList.add(new Product(3, "asus", 8000000, 4, "Asus"));
-        productList.add(new Product(4, "lenovo", 1000000, 5, "Lenovo"));
-        productList.add(new Product(5, "acer", 10000000, 6, "Acer"));
-        productList.add(new Product(6, "hp", 11000000, 7, "HP"));
+        productList.add(new Product(1, "dell", 6000, 2, "dell"));
+        productList.add(new Product(2, "macbook", 1200, 3, "Apple"));
+        productList.add(new Product(3, "asus", 8000, 4, "Asus"));
+        productList.add(new Product(4, "lenovo", 1000, 5, "Lenovo"));
+        productList.add(new Product(5, "acer", 1300, 6, "Acer"));
+        productList.add(new Product(6, "hp", 1100, 7, "HP"));
 
     }
 
@@ -52,14 +52,18 @@ public class ProductService implements IProductService {
     public void removeProductById() {
         System.out.println("Nhập vào id cần xoá sản phẩm: ");
         int idProduct = Integer.parseInt(scanner.nextLine());
-        if (idProduct - 1 >= productList.size()) {
-            System.out.println("id sản phẩm cần xoá không có");
-        } else {
-
-            productList.remove(idProduct - 1);
-
+        boolean flag = true;
+        for (Product product : productList) {
+            if (idProduct == product.getId()) {
+                productList.remove(product);
+                System.out.println("xoá thành công: ");
+                flag = false;
+                break;
+            }
         }
-        System.out.println("xoá sản phẩm thành công: ");
+        if (flag) {
+            System.out.println("xoá không thành công: ");
+        }
     }
 
     @Override
@@ -98,9 +102,9 @@ public class ProductService implements IProductService {
         System.out.println("Nhập tên sản phẩm  muốn tìm: ");
         String inputName = scanner.nextLine();
         int temp = 0;
-        for (int i = 0; i < productList.size(); i++) {
-            if ((productList.get(i)).getNameProduct().contains(inputName)) {
-                System.out.println(productList.get(i));
+        for (Product product : productList) {
+            if (product.getNameProduct().contains(inputName)) {
+                System.out.println(product);
                 temp++;
             }
         }
