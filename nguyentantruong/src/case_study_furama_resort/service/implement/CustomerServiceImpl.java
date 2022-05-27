@@ -73,7 +73,7 @@ public class CustomerServiceImpl implements ICustomerService {
                 System.out.println("nhập cmd");
                 String idCard = scanner.nextLine();
                 System.out.println("nhập số điện thoại: ");
-                int numberPhone = scanner.nextInt();
+                int numberPhone = Integer.parseInt(scanner.nextLine());
                 System.out.println("nhập email: ");
                 String email = scanner.nextLine();
                 System.out.println("nhập mã khách hàng: ");
@@ -82,22 +82,13 @@ public class CustomerServiceImpl implements ICustomerService {
                 String typeCustomer = scanner.nextLine();
                 System.out.println("nhập địa chỉ khách hàng: ");
                 String address = scanner.nextLine();
-                customerList.get(i).setName(name);
-                customerList.get(i).setDate(date);
-                customerList.get(i).setGender(gender);
-                customerList.get(i).setIdCar(idCard);
-                customerList.get(i).setNumberPhone(numberPhone);
-                customerList.get(i).setEmail(email);
-                customerList.get(i).setIdCustomer(idCustomer);
-                customerList.get(i).setTypeCustomer(typeCustomer);
-                customerList.get(i).setAddress(address);
+                Customer customer = new Customer(name, date, gender, idCard, numberPhone, email, idCustomer, typeCustomer, address);
+                customerList.set(i,customer);
 
                 System.out.println("Sửa khách hàng thành công: ");
                 check=false;
                 break;
             }
-
-
         }
         if (check){
             System.out.println("nhập mã khách hàng sai vui lòng nhập lại");

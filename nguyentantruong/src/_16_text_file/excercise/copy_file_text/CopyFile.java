@@ -8,19 +8,16 @@ public class CopyFile {
         File targetFile = new File("src/_16_text_file/excercise/copy_file_text/target.csv");
         String line;
         int count = 0;
-        try {
-
-            FileReader fileReader = new FileReader(sourceFile);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            FileWriter fileWriter = new FileWriter(targetFile);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        try (FileReader fileReader = new FileReader(sourceFile);
+             BufferedReader bufferedReader = new BufferedReader(fileReader);
+             FileWriter fileWriter = new FileWriter(targetFile);
+             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
             while ((line = bufferedReader.readLine()) != null) {
                 bufferedWriter.write(line);
                 bufferedWriter.newLine();
                 count += line.length();
 
             }
-            bufferedReader.close();
 
             System.out.println("số kí tự trong chuỗi: " + count);
         } catch (IOException e) {
