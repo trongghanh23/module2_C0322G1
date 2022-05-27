@@ -2,7 +2,9 @@
 package case_study_furama_resort.controller;
 
 import case_study_furama_resort.service.IService;
+import case_study_furama_resort.service.iextend.ICustomerService;
 import case_study_furama_resort.service.iextend.IEmployeeService;
+import case_study_furama_resort.service.implement.CustomerServiceImpl;
 import case_study_furama_resort.service.implement.EmployeeServiceImpl;
 
 import java.util.ArrayList;
@@ -10,6 +12,7 @@ import java.util.Scanner;
 
 public class FuramaController {
     static IEmployeeService iEmployeeService=new EmployeeServiceImpl();
+    static ICustomerService iCustomerService=new CustomerServiceImpl();
 
     public static Scanner scanner = new Scanner(System.in);
 
@@ -90,10 +93,13 @@ public class FuramaController {
         int input = Integer.parseInt(scanner.nextLine());
         switch (input) {
             case 1:
+                iCustomerService.displayCustomer();
                 break;
             case 2:
+                iCustomerService.addCustomer();
                 break;
             case 3:
+                iCustomerService.editCustomer();
                 break;
             case 4:
                 break;

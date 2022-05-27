@@ -9,19 +9,21 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeServiceImpl implements IEmployeeService {
-    public static Scanner scanner =new Scanner(System.in);
+    public static Scanner scanner = new Scanner(System.in);
     public static Scanner input = new Scanner(System.in);
-    static List<Employee> personList=new ArrayList<>();
+    static List<Employee> personList = new ArrayList<>();
+
     static {
-        personList.add(new Employee("nguyễn hữu an","6h00/13/2/2022","Nam","NV1",0154555124,"truogg@gmail.com","đại học","lễ tân",1000000));
-        personList.add(new Employee("nguyễn an","8h00/14/2/2022","nữ","NV2",0154555124,"truogg@gmail.com","đại học","lễ tân",1000000));
-        personList.add(new Employee("lê hữu an","11h00/13/2/2022","Nam","NV3",0154555124,"truogg@gmail.com","đại học","lễ tân",1000000));
-        personList.add(new Employee("trần hữu an","13h00/15/2/2022","Nam","NV4",0154555124,"truogg@gmail.com","đại học","lễ tân",1000000));
-        personList.add(new Employee("đỗ hữu an","19h00/13/2/2022","Nữ","NV5",0154555124,"truogg@gmail.com","đại học","lễ tân",1000000));
+        personList.add(new Employee("nguyễn hữu an", "6h00/13/2/2022", "Nam", "NV1", 0154555124, "truogg@gmail.com", "đại học", "lễ tân", 1000000));
+        personList.add(new Employee("nguyễn an", "8h00/14/2/2022", "nữ", "NV2", 0154555124, "truogg@gmail.com", "đại học", "lễ tân", 1000000));
+        personList.add(new Employee("lê hữu an", "11h00/13/2/2022", "Nam", "NV3", 0154555124, "truogg@gmail.com", "đại học", "lễ tân", 1000000));
+        personList.add(new Employee("trần hữu an", "13h00/15/2/2022", "Nam", "NV4", 0154555124, "truogg@gmail.com", "đại học", "lễ tân", 1000000));
+        personList.add(new Employee("đỗ hữu an", "19h00/13/2/2022", "Nữ", "NV5", 0154555124, "truogg@gmail.com", "đại học", "lễ tân", 1000000));
     }
+
     @Override
     public void displayEmployeeService() {
-        for (Employee item:personList) {
+        for (Employee item : personList) {
             System.out.println(item);
 
         }
@@ -33,22 +35,22 @@ public class EmployeeServiceImpl implements IEmployeeService {
         System.out.println("Nhập tên nhân viên: ");
         String name = input.nextLine();
         System.out.println("nhập ngày tháng năm sinh: ");
-        String age =input.nextLine();
+        String age = input.nextLine();
         System.out.println("Nhập giới tính: ");
-        String gender=input.nextLine();
+        String gender = input.nextLine();
         System.out.println("Mã nhân viên: ");
-        String idCard =input.nextLine();
+        String idCard = input.nextLine();
         System.out.println("Nhập số điện thoại: ");
-        int numberPhone=Integer.parseInt(input.nextLine());
+        int numberPhone = Integer.parseInt(input.nextLine());
         System.out.println(" Nhập email: ");
-        String email=input.nextLine();
+        String email = input.nextLine();
         System.out.println("Nhập trình độ: ");
-        String level =input.nextLine();
+        String level = input.nextLine();
         System.out.println("Nhập vị trí làm việc: ");
-        String location =input.nextLine();
+        String location = input.nextLine();
         System.out.println("Nhập lương: ");
-        double salary=Double.parseDouble(input.nextLine());
-        Employee employee=new Employee(name,age,gender,idCard,numberPhone,email,level,location,salary);
+        double salary = Double.parseDouble(input.nextLine());
+        Employee employee = new Employee(name, age, gender, idCard, numberPhone, email, level, location, salary);
         personList.add(employee);
         System.out.println("thêm thành công: ");
     }
@@ -56,28 +58,29 @@ public class EmployeeServiceImpl implements IEmployeeService {
     @Override
     public void editEmployeeService() {
         System.out.println("Nhập mã nhân viên cần sửa: ");
-        String inputEditId=scanner.nextLine();
-        int temp=0;
-        for (int i = 0; i <personList.size() ; i++) {
-            if (personList.get(i).getIdCar().equals(inputEditId)){
+        String inputEditId = scanner.nextLine();
+
+        boolean check = true;
+        for (int i = 0; i < personList.size(); i++) {
+            if (personList.get(i).getIdCar().equals(inputEditId)) {
                 System.out.println("Nhập tên nhân viên: ");
-                String name=scanner.nextLine();
+                String name = scanner.nextLine();
                 System.out.println("nhập ngày tháng năm sinh: ");
-                String age =input.nextLine();
+                String age = input.nextLine();
                 System.out.println("Nhập giới tính: ");
-                String gender=input.nextLine();
+                String gender = input.nextLine();
                 System.out.println("Mã nhân viên: ");
-                String idCard =input.nextLine();
+                String idCard = input.nextLine();
                 System.out.println("Nhập số điện thoại: ");
-                int numberPhone=Integer.parseInt(input.nextLine());
+                int numberPhone = Integer.parseInt(input.nextLine());
                 System.out.println(" Nhập email: ");
-                String email=input.nextLine();
+                String email = input.nextLine();
                 System.out.println("Nhập trình độ: ");
-                String level =input.nextLine();
+                String level = input.nextLine();
                 System.out.println("Nhập vị trí làm việc: ");
-                String location =input.nextLine();
+                String location = input.nextLine();
                 System.out.println("Nhập lương: ");
-                double salary=Double.parseDouble(input.nextLine());
+                double salary = Double.parseDouble(input.nextLine());
 
                 personList.get(i).setName(name);
                 personList.get(i).setDate(age);
@@ -88,15 +91,18 @@ public class EmployeeServiceImpl implements IEmployeeService {
                 personList.get(i).setLevel(level);
                 personList.get(i).setLocation(location);
                 personList.get(i).setSalary(salary);
-                temp++;
+
                 System.out.println("Edit nhân viên thành công");
+                check = false;
                 break;
             }
 
         }
-        if (temp==0){
-            System.out.println("không tìm thấy nhân viên");
+        if (check) {
+            System.out.println("nhập sai mã vui lòng nhập lại: ");
+            editEmployeeService();
         }
+
 
     }
 }
