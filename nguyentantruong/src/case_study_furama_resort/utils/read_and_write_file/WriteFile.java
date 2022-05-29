@@ -13,6 +13,7 @@ public class WriteFile {
     public static void writeFile(String pathFile, String data){
         File file =new File(pathFile);
 
+
         try(FileWriter fileWriter =new FileWriter(file, true);
             BufferedWriter bufferedWriter=new BufferedWriter(fileWriter)) {
             bufferedWriter.write(data);
