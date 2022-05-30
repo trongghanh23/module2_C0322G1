@@ -1,12 +1,8 @@
 package case_study_furama_resort.service.implement;
 
 import case_study_furama_resort.model.person.Customer;
-import case_study_furama_resort.model.person.Employee;
-import case_study_furama_resort.model.person.Person;
 import case_study_furama_resort.service.iextend.ICustomerService;
-import javafx.scene.transform.Scale;
 
-import javax.jws.soap.SOAPBinding;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -63,7 +59,7 @@ public class CustomerServiceImpl implements ICustomerService {
         String input = scanner.nextLine();
         boolean check=true;
         for (int i = 0; i < customerList.size(); i++) {
-            if (customerList.get(i).getIdCustomer().equals(input)) {
+            if (customerList.get(i).getCustomerId().equals(input)) {
                 System.out.println("Nhập tên khách hàng: ");
                 String name = scanner.nextLine();
                 System.out.println("Nhập ngày sinh: ");

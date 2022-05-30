@@ -82,8 +82,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
                 System.out.println("Nhập lương: ");
                 double salary = Double.parseDouble(input.nextLine());
                 Employee employee=new Employee(name,age,gender,idCard,numberPhone,email,level,location,salary);
-                personList.add(employee);
-
+                personList.set(i,employee);
 
                 System.out.println("Edit nhân viên thành công");
                 check = false;

@@ -2,8 +2,8 @@ package case_study_furama_resort.model;
 
 public class Booking {
     private int idBooking;
-    private int dayStart;
-    private int dayEnd;
+    private String dayStart;
+    private String dayEnd;
     private String idCustomer;
     private String nameService;
     private String typeService;
@@ -11,7 +11,7 @@ public class Booking {
     public Booking() {
     }
 
-    public Booking(int idBooking, int dayStart, int dayEnd, String idCustomer, String nameService, String typeService) {
+    public Booking(int idBooking, String dayStart, String dayEnd, String idCustomer, String nameService, String typeService) {
         this.idBooking = idBooking;
         this.dayStart = dayStart;
         this.dayEnd = dayEnd;
