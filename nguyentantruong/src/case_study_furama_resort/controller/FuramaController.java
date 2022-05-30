@@ -4,15 +4,18 @@ package case_study_furama_resort.controller;
 import case_study_furama_resort.service.IService;
 import case_study_furama_resort.service.iextend.ICustomerService;
 import case_study_furama_resort.service.iextend.IEmployeeService;
+import case_study_furama_resort.service.iextend.IFacilityService;
 import case_study_furama_resort.service.implement.CustomerServiceImpl;
 import case_study_furama_resort.service.implement.EmployeeServiceImpl;
+import case_study_furama_resort.service.implement.FacilityServiceImpl;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FuramaController {
-    static IEmployeeService iEmployeeService=new EmployeeServiceImpl();
-    static ICustomerService iCustomerService=new CustomerServiceImpl();
+    static IEmployeeService iEmployeeService = new EmployeeServiceImpl();
+    static ICustomerService iCustomerService = new CustomerServiceImpl();
+    static IFacilityService iFacilityService = new FacilityServiceImpl();
 
     public static Scanner scanner = new Scanner(System.in);
 
@@ -32,7 +35,7 @@ public class FuramaController {
                     displayEmployee();
                     break;
                 case 2:
-                   displayCustomer();
+                    displayCustomer();
 
                     break;
                 case 3:
@@ -114,13 +117,15 @@ public class FuramaController {
         System.out.println("" +
                 "1. Display list facility\n" +
                 "2. Add new facility\n" +
-                "3. tDisplay list facility maintenance\n" +
+                "3. Display list facility maintenance\n" +
                 "4. Return main menu\n");
         int input = Integer.parseInt(scanner.nextLine());
         switch (input) {
             case 1:
+                iFacilityService.display();
                 break;
             case 2:
+                addNewFacility();
                 break;
             case 3:
                 break;
@@ -130,6 +135,34 @@ public class FuramaController {
                 System.exit(0);
             default:
                 System.out.println("Mời nhập lại chức năng");
+        }
+    }
+
+    public static void addNewFacility() {
+        System.out.println("" +
+                "1. add new villa\n" +
+                "2. add new house\n" +
+                "3. add new room\n" +
+                "4. back to menu\n");
+        System.out.println("choose");
+        int choose = Integer.parseInt(scanner.nextLine());
+        switch (choose) {
+            case 1:
+                iFacilityService.addNewVilla();
+                displayFacility();
+                break;
+            case 2:
+                iFacilityService.addNewHouse();
+                displayFacility();
+                break;
+            case 3:
+                iFacilityService.addNewRoom();
+                break;
+            case 4:
+                display();
+            default:
+                System.out.println("mời nhập lại ");
+
         }
     }
 
@@ -161,13 +194,14 @@ public class FuramaController {
                 System.out.println("Mời nhập lại chức năng");
         }
     }
-    public static void displayPromotion(){
+
+    public static void displayPromotion() {
         System.out.println("" +
                 "1.Display list customers use service\n" +
                 "2.Display list customers get voucher\n" +
                 "3.Return main menu\n");
-        int input =Integer.parseInt(scanner.nextLine());
-        switch (input){
+        int input = Integer.parseInt(scanner.nextLine());
+        switch (input) {
             case 1:
                 break;
             case 2:

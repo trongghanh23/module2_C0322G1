@@ -29,7 +29,7 @@ public class Villa extends Facility {
                 "roomStandard='" + roomStandard + '\'' +
                 ", swimmingPoolArea=" + swimmingPoolArea +
                 ", numberFloors=" + numberFloors +
-                super.toString()+
+                super.toString() +
                 '}';
     }
 }

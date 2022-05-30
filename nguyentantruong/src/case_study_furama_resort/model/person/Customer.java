@@ -1,6 +1,6 @@
 package case_study_furama_resort.model.person;
 
-public class Customer extends Person{
+public class Customer extends Person {
     private String idCustomer;
     private String typeCustomer;
     private String address;
@@ -51,7 +51,7 @@ public class Customer extends Person{
                 "idCustomer='" + idCustomer + '\'' +
                 ", typeCustomer='" + typeCustomer + '\'' +
                 ", address='" + address + '\'' +
-                super.toString()+
+                super.toString() +
                 '}';
     }
 }

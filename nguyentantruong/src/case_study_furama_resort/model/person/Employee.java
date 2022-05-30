@@ -1,6 +1,6 @@
 package case_study_furama_resort.model.person;
 
-public class Employee extends Person{
+public class Employee extends Person {
     private String level;
     private String location;
     private double salary;
@@ -51,7 +51,7 @@ public class Employee extends Person{
                 "level='" + level + '\'' +
                 ", location='" + location + '\'' +
                 ", salary=" + salary +
-                super.toString()+
+                super.toString() +
                 '}';
     }
 }

@@ -7,18 +7,18 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 
 public class WriteFile {
-//    public static void main(String[] args) {
+    //    public static void main(String[] args) {
 //        writeFile("src/_16_text_file/practice/file.csv","hello co3");
 //    }
-    public static void writeFile(String pathFile, String data){
-        File file =new File(pathFile);
+    public static void writeFile(String pathFile, String data) {
+        File file = new File(pathFile);
 
 
-        try(FileWriter fileWriter =new FileWriter(file, true);
-            BufferedWriter bufferedWriter=new BufferedWriter(fileWriter)) {
+        try (FileWriter fileWriter = new FileWriter(file, true);
+             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
             bufferedWriter.write(data);
             bufferedWriter.newLine();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
             System.out.println("không tim tháy file");
         }

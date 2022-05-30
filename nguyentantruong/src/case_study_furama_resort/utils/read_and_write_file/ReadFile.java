@@ -6,23 +6,23 @@ import java.util.List;
 
 public class ReadFile {
 
-    public static List<String[]>readFile(String pathFile){
-        File file =new File(pathFile);
-        List<String[]>list =new ArrayList<>();
-        String line =null;
-        try (FileReader fileReader =new FileReader(file);
-        BufferedReader bufferedReader =new BufferedReader(fileReader)){
-            while ((line=bufferedReader.readLine()) !=null){
+    public static List<String[]> readFile(String pathFile) {
+        File file = new File(pathFile);
+        List<String[]> list = new ArrayList<>();
+        String line = null;
+        try (FileReader fileReader = new FileReader(file);
+             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+            while ((line = bufferedReader.readLine()) != null) {
 
-                String[] arr =line.split(",");
+                String[] arr = line.split(",");
                 list.add(arr);
             }
-        }catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
-return  list;
+        return list;
 
     }
 }
