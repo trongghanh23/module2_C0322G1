@@ -1,9 +1,13 @@
 package _03_ArrayAndMethod.bai_tap;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class CharacterCount {
     public static void main(String[] args) {
+        Array[] nam=new Array[9];
+        System.out.println(Arrays.toString(nam));
         Scanner scanner = new Scanner(System.in);
         String character= "ki tu xuat hien trong chuoi";
         char[] arr = character.toCharArray();

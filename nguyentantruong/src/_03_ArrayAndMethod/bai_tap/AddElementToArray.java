@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class AddElementToArray {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         int[] arr = new int[10];
         arr[0] = 1;
         arr[1] = 2;

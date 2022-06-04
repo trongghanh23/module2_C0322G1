@@ -1,15 +1,14 @@
 
 package case_study_furama_resort.controller;
 
-import case_study_furama_resort.service.IService;
 import case_study_furama_resort.service.iextend.ICustomerService;
 import case_study_furama_resort.service.iextend.IEmployeeService;
 import case_study_furama_resort.service.iextend.IFacilityService;
-import case_study_furama_resort.service.implement.CustomerServiceImpl;
-import case_study_furama_resort.service.implement.EmployeeServiceImpl;
-import case_study_furama_resort.service.implement.FacilityServiceImpl;
+import case_study_furama_resort.service.CustomerServiceImpl;
+import case_study_furama_resort.service.EmployeeServiceImpl;
+import case_study_furama_resort.service.FacilityServiceImpl;
+import case_study_furama_resort.utils.read_and_write_file.CheckException;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FuramaController {
@@ -19,7 +18,9 @@ public class FuramaController {
 
     public static Scanner scanner = new Scanner(System.in);
 
+
     public static void display() {
+
         do {
             System.out.println("" +
                     "1. Employee Management\n" +
@@ -29,8 +30,9 @@ public class FuramaController {
                     "5.Promotion Management\n" +
                     "6.Exit");
             System.out.println("Choose options: ");
-            int choose = Integer.parseInt(scanner.nextLine());
-            switch (choose) {
+            int check = CheckException.checkparseInt();
+
+            switch (check) {
                 case 1:
                     displayEmployee();
                     break;
@@ -52,7 +54,7 @@ public class FuramaController {
                 case 6:
                     System.exit(0);
                 default:
-                    System.out.println("Mời chọn lại chức năng: ");
+                    System.out.println("Số bạn chọn phải trong khoảng 1-6,Mời chọn lại chức năng: ");
             }
 
         }
@@ -66,22 +68,20 @@ public class FuramaController {
                 "2. Add new employee\n" +
                 "3. Edit employee\n" +
                 "4. Return main menu\n");
-        int input = Integer.parseInt(scanner.nextLine());
-        switch (input) {
+        int inputs = CheckException.checkparseInt();
+        switch (inputs) {
             case 1:
-                iEmployeeService.displayEmployeeService();
+                iEmployeeService.display();
                 break;
             case 2:
-                iEmployeeService.addEmployeeService();
+                iEmployeeService.add();
                 break;
             case 3:
-                iEmployeeService.editEmployeeService();
+                iEmployeeService.edit();
                 break;
             case 4:
-                display();
-                break;
-            case 5:
-                System.exit(0);
+                return;
+
             default:
                 System.out.println("Mời nhập lại chức năng");
         }
@@ -93,21 +93,20 @@ public class FuramaController {
                 "2. Add new customer\n" +
                 "3. Edit customer\n" +
                 "4. Return main menu\n");
-        int input = Integer.parseInt(scanner.nextLine());
+        int input = CheckException.checkparseInt();
         switch (input) {
             case 1:
-                iCustomerService.displayCustomer();
+                iCustomerService.display();
                 break;
             case 2:
-                iCustomerService.addCustomer();
+                iCustomerService.add();
                 break;
             case 3:
-                iCustomerService.editCustomer();
+                iCustomerService.edit();
                 break;
             case 4:
-                break;
-            case 5:
-                System.exit(0);
+                return;
+
             default:
                 System.out.println("Mời nhập lại chức năng");
         }
@@ -119,20 +118,18 @@ public class FuramaController {
                 "2. Add new facility\n" +
                 "3. Display list facility maintenance\n" +
                 "4. Return main menu\n");
-        int input = Integer.parseInt(scanner.nextLine());
-        switch (input) {
+        int check =CheckException.checkparseInt();
+        switch (check) {
             case 1:
                 iFacilityService.display();
                 break;
             case 2:
-                addNewFacility();
+               addNewFacility();
                 break;
             case 3:
                 break;
             case 4:
-                break;
-            case 5:
-                System.exit(0);
+                return;
             default:
                 System.out.println("Mời nhập lại chức năng");
         }
@@ -145,8 +142,8 @@ public class FuramaController {
                 "3. add new room\n" +
                 "4. back to menu\n");
         System.out.println("choose");
-        int choose = Integer.parseInt(scanner.nextLine());
-        switch (choose) {
+        int check =CheckException.checkparseInt();
+        switch (check) {
             case 1:
                 iFacilityService.addNewVilla();
                 displayFacility();
@@ -159,7 +156,7 @@ public class FuramaController {
                 iFacilityService.addNewRoom();
                 break;
             case 4:
-                display();
+                return;
             default:
                 System.out.println("mời nhập lại ");
 
@@ -174,7 +171,7 @@ public class FuramaController {
                 "4. Display list contracts\n" +
                 "5. Edit contracts\n" +
                 "6. Return main menu\n");
-        int input = Integer.parseInt(scanner.nextLine());
+        int input = CheckException.checkparseInt();
         switch (input) {
             case 1:
                 break;
@@ -187,9 +184,7 @@ public class FuramaController {
             case 5:
                 break;
             case 6:
-                break;
-            case 7:
-                System.exit(0);
+                return;
             default:
                 System.out.println("Mời nhập lại chức năng");
         }
@@ -200,16 +195,14 @@ public class FuramaController {
                 "1.Display list customers use service\n" +
                 "2.Display list customers get voucher\n" +
                 "3.Return main menu\n");
-        int input = Integer.parseInt(scanner.nextLine());
+        int input = CheckException.checkparseInt();
         switch (input) {
             case 1:
                 break;
             case 2:
                 break;
             case 3:
-                break;
-            case 4:
-                System.exit(0);
+                return;
             default:
                 System.out.println("Mời chọn lại chức năng: ");
         }

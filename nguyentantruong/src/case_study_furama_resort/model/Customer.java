@@ -1,4 +1,6 @@
-package case_study_furama_resort.model.person;
+package case_study_furama_resort.model;
+
+import case_study_furama_resort.model.Person;
 
 public class Customer extends Person {
     private String customerId;
@@ -7,6 +9,20 @@ public class Customer extends Person {
 
     public Customer() {
     }
+
+    @Override
+    public String convertLine() {
+        return super.getName() + ","
+                + super.getDate() + ","
+                + super.getGender() + ","
+                + super.getIdCar() + ","
+                + super.getNumberPhone() + ","
+                + super.getEmail() + ","
+                + this.getCustomerId() + ","
+                + this.getCustomerType() + ","
+                + this.getAddress();
+    }
+
 
     public Customer(String idCustomer, String typeCustomer, String address) {
         this.customerId = idCustomer;

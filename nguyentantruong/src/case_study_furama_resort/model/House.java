@@ -1,4 +1,6 @@
-package case_study_furama_resort.model.facility;
+package case_study_furama_resort.model;
+
+import case_study_furama_resort.model.Facility;
 
 public class House extends Facility {
     private String roomStandard;
@@ -13,11 +15,26 @@ public class House extends Facility {
         this.numberFloors = numberFloors;
     }
 
-    public House(String serviceName, double acreage, int numberPerson, double rentalType, String roomStandard, int numberFloors) {
-        super(serviceName, acreage, numberPerson, rentalType);
+    public House(int nameId, String serviceName, double acreage, double rental, int numberPerson, double rentalType, String roomStandard, int numberFloors) {
+        super(nameId, serviceName, acreage, rental, numberPerson, rentalType);
         this.roomStandard = roomStandard;
         this.numberFloors = numberFloors;
     }
+
+    @Override
+    public String convert() {
+        return super.getNameId() + ","
+                + super.getServiceName() + ","
+                + super.getAcreage() + ","
+                + super.getRental() + ","
+                + super.getNumberPerson() + ","
+                + super.getRentalType() + ","
+                + this.getRoomStandard() + ","
+                + this.getNumberFloors() ;
+
+    }
+
+
 
     public String getRoomStandard() {
         return roomStandard;
@@ -40,7 +57,7 @@ public class House extends Facility {
         return "House{" +
                 "roomStandard='" + roomStandard + '\'' +
                 ", numberFloors=" + numberFloors +
-                super.toString() +
+                super.toString()+
                 '}';
     }
 }

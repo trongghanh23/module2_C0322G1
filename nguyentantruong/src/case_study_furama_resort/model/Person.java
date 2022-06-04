@@ -1,22 +1,21 @@
-package case_study_furama_resort.libs.manage_person;
+package case_study_furama_resort.model;
 
 public abstract class Person {
     private String name;
-    private int date;
-    private boolean gender;
-    private int numberCar;
+    private String date;
+    private String gender;
+    private String idCar;
     private int numberPhone;
     private String email;
 
     public Person() {
     }
 
-    public Person(String name, int date, boolean gender, int numberCar, int numberPhone, String email) {
-
+    public Person(String name, String date, String gender, String idCar, int numberPhone, String email) {
         this.name = name;
         this.date = date;
         this.gender = gender;
-        this.numberCar = numberCar;
+        this.idCar = idCar;
         this.numberPhone = numberPhone;
         this.email = email;
     }
@@ -29,28 +28,28 @@ public abstract class Person {
         this.name = name;
     }
 
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public boolean isGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(boolean gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
-    public int getNumberCar() {
-        return numberCar;
+    public String getIdCar() {
+        return idCar;
     }
 
-    public void setNumberCar(int numberCar) {
-        this.numberCar = numberCar;
+    public void setIdCar(String idCar) {
+        this.idCar = idCar;
     }
 
     public int getNumberPhone() {
@@ -69,13 +68,16 @@ public abstract class Person {
         this.email = email;
     }
 
+    public abstract String convertLine();
+
+
     @Override
     public String toString() {
         return "Person{" +
-                "name='" + name + '\'' +
-                ", date=" + date +
+                "Name='" + name + '\'' +
+                ", Date=" + date +
                 ", gender=" + gender +
-                ", numberCar=" + numberCar +
+                ", idCar='" + idCar + '\'' +
                 ", numberPhone=" + numberPhone +
                 ", email='" + email + '\'' +
                 '}';

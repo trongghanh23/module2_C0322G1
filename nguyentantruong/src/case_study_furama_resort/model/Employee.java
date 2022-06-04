@@ -1,4 +1,6 @@
-package case_study_furama_resort.model.person;
+package case_study_furama_resort.model;
+
+import case_study_furama_resort.model.Person;
 
 public class Employee extends Person {
     private String level;
@@ -7,6 +9,20 @@ public class Employee extends Person {
 
     public Employee() {
     }
+
+    @Override
+    public String convertLine() {
+      return super.getName() + ","
+                + super.getDate() + ","
+                + super.getGender() + ","
+                + super.getIdCar() + ","
+                + super.getNumberPhone() + ","
+                + super.getEmail() + ","
+                + this.getLevel() + ","
+                + this.getLocation() + ","
+                + this.getSalary();
+    }
+
 
     public Employee(String level, String location, double salary) {
         this.level = level;
