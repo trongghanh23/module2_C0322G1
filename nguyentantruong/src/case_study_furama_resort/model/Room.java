@@ -14,7 +14,7 @@ Room extends Facility {
         this.service = service;
     }
 
-    public Room(int nameId, String serviceName, double acreage, double rental, int numberPerson, double rentalType, String service) {
+    public Room(String nameId, String serviceName, double acreage, double rental, int numberPerson, String rentalType, String service) {
         super(nameId, serviceName, acreage, rental, numberPerson, rentalType);
         this.service = service;
     }

@@ -1,18 +1,18 @@
 package case_study_furama_resort.model;
 
 public abstract class Facility {
-    private int nameId;
+    private String nameId;
     private String serviceName;
     private double acreage;
     private double rental;
     private int numberPerson;
-    private double rentalType;
+    private String rentalType;
 
 
     public Facility() {
     }
 
-    public Facility(int nameId, String serviceName, double acreage, double rental, int numberPerson, double rentalType) {
+    public Facility(String nameId, String serviceName, double acreage, double rental, int numberPerson, String rentalType) {
         this.nameId = nameId;
         this.serviceName = serviceName;
         this.acreage = acreage;
@@ -22,11 +22,11 @@ public abstract class Facility {
     }
 
 
-    public int getNameId() {
+    public String getNameId() {
         return nameId;
     }
 
-    public void setNameId(int nameId) {
+    public void setNameId(String nameId) {
         this.nameId = nameId;
     }
 
@@ -62,11 +62,11 @@ public abstract class Facility {
         this.numberPerson = numberPerson;
     }
 
-    public double getRentalType() {
+    public String getRentalType() {
         return rentalType;
     }
 
-    public void setRentalType(double rentalType) {
+    public void setRentalType(String rentalType) {
         this.rentalType = rentalType;
     }
 

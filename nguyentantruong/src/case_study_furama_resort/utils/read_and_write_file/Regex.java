@@ -1,5 +1,7 @@
 package case_study_furama_resort.utils.read_and_write_file;
 
+import case_study_furama_resort.service.exception.*;
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -8,118 +10,229 @@ import java.util.regex.Pattern;
 
 public class Regex {
     static Scanner scanner = new Scanner(System.in);
-    public static final String REGEX_SERVICE_CODE_VILLA = "^(SVVL-)\\d{4}$";
-    public static final String REGEX_SERVICE_CODE_HOUSE = "^(SVHO-)\\d{4}$";
-    public static final String REGEX_SERVICE_CODE_ROOM = "^(SVRO-)\\d{4}$";
-    public static final String REGEX_NAME = "^[A-Z][A-Za-z]+[0-9]*$";
-    public static final String REGEX_AREA = "^([3-9]\\d|\\d{3,}).?\\d*$";
-    public static final String REGEX_RENTAL_COSTS = "^\\d+.?\\d*$";
-    public static final String REGEX_NUMBER_PEOPLE = "^(1)\\d$|^[1-9]?$";
-    public static final String REGEX_NUMBER_FOORS = "^\\d*$";
-    public static final String REGEX_DATE_OF_BIRTH = "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[13-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$";
-
-    public static String regexServiceCodeRoom() {
-        String serviceCode = CheckException.checkString();
-        while (!serviceCode.matches(REGEX_SERVICE_CODE_VILLA)) {
-            System.out.println("Nhập không đúng định dạng mã dịch vụ !!" +
-                    "\nYêu cầu nhập lại lại đây theo định dạng SVRO-YYYY: ");
-            serviceCode = scanner.nextLine();
-        }
-        return serviceCode;
+    private static final String REGEX_STR = "^[A-Z][a-z0-9]+$";
+    private static final String REGEX_ID_VILLA = "^SVVL-[0-9]{4}$";
+    private static final String REGEX_ID_HOUSE = "^SVHO-[0-9]{4}$";
+    private static final String REGEX_ID_ROOM = "^SVRO-[0-9]{4}$";
+    private static final String REGEX_AREA = "^([3-9]\\d)|([1-9]\\d{2,})$";
+    private static final String REGEX_INT = "^[1-9]{1,}$";
+    private static final String REGEX_PEOPLE = "^[1-9]|([1][0-9])|(20)$";
+    public static String regexData(String temp, String regex, String error) {
+        boolean check = true;
+        do {
+            if (temp.matches(regex)) {
+                check = false;
+            } else {
+                System.out.println(error);
+                temp = scanner.nextLine();
+            }
+        } while (check);
+        return temp;
     }
 
-    public static String regexServiceCodeVilla() {
-        String serviceCode = CheckException.checkString();
-        while (!serviceCode.matches(REGEX_SERVICE_CODE_VILLA)) {
-            System.out.println("Nhập không đúng định dạng mã dịch vụ !!" +
-                    "\nYêu cầu nhập lại lại đây theo định dạng SVVL-YYYY: ");
-            serviceCode = scanner.nextLine();
-        }
-        return serviceCode;
+    public static String regexIdVilla(String regex) {
+        boolean check = true;
+        String temp;
+        do {
+            temp = scanner.nextLine();
+            check = false;
+            try {
+                if (!temp.matches(regex)) {
+                    check = true;
+                    throw new InvalidVillaIdException("Error: Incorrect Format..[SVVL-YYYY]..Enter Again: ");
+                }
+            } catch (InvalidVillaIdException e) {
+                System.out.println(e.getMessage());
+            }
+        } while (check);
+        return temp;
     }
 
-    public static String regexServiceCodeHouse() {
-        String serviceCode = CheckException.checkString();
-        while (!serviceCode.matches(REGEX_SERVICE_CODE_HOUSE)) {
-            System.out.println("Nhập không đúng định dạng mã dịch vụ !!" +
-                    "\nYêu cầu nhập lại lại đây theo định dạng SVHO-YYYY: ");
-            serviceCode = scanner.nextLine();
-        }
-        return serviceCode;
+    public static String regexIdHouse(String regex) {
+        boolean check = true;
+        String temp;
+        do {
+            temp = scanner.nextLine();
+            check = false;
+            try {
+                if (!temp.matches(regex)) {
+                    check = true;
+                    throw new InvalidHouseIdException("Error: Incorrect Format..[SVHO-YYYY]..Enter Again: ");
+                }
+            } catch (InvalidHouseIdException e) {
+                System.out.println(e.getMessage());
+            }
+        } while (check);
+        return temp;
     }
 
-    public static String regexName() {
-        String name = CheckException.checkString();
-        while (!name.matches(REGEX_NAME)) {
-            System.out.println("Nhập không đúng định dạng  !!" +
-                    "\nYêu cầu nhập lại: ");
-            name = scanner.nextLine();
-        }
-        return name;
+    public static String regexIdRoom(String regex) {
+        boolean check = true;
+        String temp;
+        do {
+            temp = scanner.nextLine();
+            check = false;
+            try {
+                if (!temp.matches(regex)) {
+                    check = true;
+                    throw new InvalidRoomIdException("Error: Incorrect Format..[SVRO-YYYY]..Enter Again: ");
+                }
+            } catch (InvalidRoomIdException e) {
+                System.out.println(e.getMessage());
+            }
+        } while (check);
+        return temp;
     }
 
-    public static Double regexArea() {
-        Double area = CheckException.checkparseDouble();
-        while (!String.valueOf(area).matches(REGEX_AREA)) {
-            System.out.println("Nhập số lớn hơn 30 !!" +
-                    "\nYêu cầu nhập lại: ");
-            area = CheckException.checkparseDouble();
-        }
-        return area;
+    public static String regexStr(String regex) {
+        boolean check = true;
+        String temp;
+        do {
+            temp = scanner.nextLine();
+            check = false;
+            try {
+                if (!temp.matches(regex)) {
+                    check = true;
+                    throw new InvalidStringException("Error: Incorrect Format..Enter Again: ");
+                }
+            } catch (InvalidStringException e) {
+                System.out.println(e.getMessage());
+            }
+        } while (check);
+        return temp;
     }
 
-    public static Integer regexRentalCosts() {
-        Integer regexRentalCosts = CheckException.checkparseInt();
-        while (!String.valueOf(regexRentalCosts).matches(REGEX_RENTAL_COSTS)) {
-            System.out.println("Nhập không phải số dương !!" +
-                    "\nYêu cầu nhập lại: ");
-            regexRentalCosts = CheckException.checkparseInt();
-        }
-        return regexRentalCosts;
+    public static String regexArea(String regex) {
+        boolean check = true;
+        String temp;
+        do {
+            temp = scanner.nextLine();
+            check = false;
+            try {
+                if (!temp.matches(regex)) {
+                    check = true;
+                    throw new InvalidAreaException("Error: Incorrect Format..Use Area > 30m2..Enter Again: ");
+                }
+            } catch (InvalidAreaException e) {
+                System.out.println(e.getMessage());
+            }
+        } while (check);
+        return temp;
     }
 
-    public static int regexNumberPeople() {
-        int numberPeople = CheckException.checkparseInt();
-
-        while (!String.valueOf(numberPeople).matches(REGEX_NUMBER_PEOPLE)) {
-            System.out.println("Nhập không đúng định dạng !!" +
-                    "\nYêu cầu nhập lại: ");
-            numberPeople = CheckException.checkparseInt();
-        }
-        return numberPeople;
+    public static String regexInt(String regex) {
+        boolean check = true;
+        String temp;
+        do {
+            temp = scanner.nextLine();
+            check = false;
+            try {
+                if (!temp.matches(regex)) {
+                    check = true;
+                    throw new InvalidIntegerException("Error: Incorrect Format: Enter Number > 0..Enter Again: ");
+                }
+            } catch (InvalidIntegerException e) {
+                System.out.println(e.getMessage());
+            }
+        } while (check);
+        return temp;
     }
 
-    public static int regexNumberOfFloors() {
-        int numberOfFloors = CheckException.checkparseInt();
-        while (!String.valueOf(numberOfFloors).matches(REGEX_NUMBER_FOORS)) {
-            System.out.print("Nhập số không  !!" +
-                    "\nYêu cầu nhập lại: ");
-            numberOfFloors = CheckException.checkparseInt();
-        }
-        return numberOfFloors;
+    public static String regexPeople(String regex) {
+        boolean check = true;
+        String temp;
+        do {
+            temp = scanner.nextLine();
+            check = false;
+            try {
+                if (!temp.matches(regex)) {
+                    check = true;
+                    throw new InvalidPeopleException("Error: Incorrect Format..0 < Max People < 20..Enter Again: ");
+                }
+            } catch (InvalidPeopleException e) {
+                System.out.println(e.getMessage());
+            }
+        } while (check);
+        return temp;
     }
 
-    public static void regexAge(String date) {
+    public static String regexAge(String temp, String regex) {
         boolean check = true;
         while (check) {
             try {
-                if (Pattern.matches(REGEX_DATE_OF_BIRTH, date)) {
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                    LocalDate age = LocalDate.parse(date, formatter);
-                    LocalDate dateNow = LocalDate.now();
-                    int year = Period.between(age, dateNow).getYears();
-                    if (year < 100 && year > 18) {
+                if (Pattern.matches(regex, temp)) {
+                    DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                    LocalDate age = LocalDate.parse(temp, dateTimeFormatter);
+                    LocalDate now = LocalDate.now();
+                    int current = Period.between(age, now).getYears();
+                    if (current < 100 && current > 18) {
                         check = false;
                     } else {
-                        throw new AgeException("Tuổi phải lớn hơn 18 và bé hơn 100");
+                        throw new AgeException("Age Must > 18 and < 100.");
                     }
                 } else {
-                    throw new AgeException("Định dạng nhập vào sai");
+                    throw new AgeException("Incorrect Format.. Enter Again: ");
                 }
             } catch (AgeException e) {
                 System.out.println(e.getMessage());
-                date = scanner.nextLine();
+                temp = scanner.nextLine();
             }
         }
+        return temp;
+    }
+
+    public static String inputIdVilla() {
+        System.out.println("Enter Id Villa: ");
+        return Regex.regexIdVilla(REGEX_ID_VILLA);
+    }
+
+    public static String inputIdHouse() {
+        System.out.println("Enter Id House: ");
+        return Regex.regexIdHouse(REGEX_ID_HOUSE);
+    }
+
+    public static String inputIdRoom() {
+        System.out.println("Enter Id Room: ");
+        return Regex.regexIdRoom(REGEX_ID_ROOM);
+    }
+
+    public static String inputName() {
+        System.out.println("Enter Name Service: ");
+        return Regex.regexStr(REGEX_STR);
+    }
+
+    public static String inputUseArea() {
+        System.out.println("Enter Area Use: ");
+        return Regex.regexArea(REGEX_AREA);
+    }
+
+    public static String inputAreaPool() {
+        System.out.println("Enter Area Pool: ");
+        return Regex.regexArea(REGEX_AREA);
+    }
+
+    public static String inputRentalPrice() {
+        System.out.println("Enter Rental Price: ");
+        return Regex.regexInt(REGEX_INT);
+    }
+
+    public static String inputPeopleMax() {
+        System.out.println("Enter Rental People Max: ");
+        return Regex.regexPeople(REGEX_PEOPLE);
+    }
+
+    public static String inputFloor() {
+        System.out.println("Enter Floor Villa: ");
+        return Regex.regexInt(REGEX_INT);
+    }
+
+    public static String inputStandardVilla() {
+        System.out.println("Enter Standard Villa: ");
+        return Regex.regexIdVilla(REGEX_STR);
+    }
+
+    public static String inputStandardHouse() {
+        System.out.println("Enter Standard House: ");
+        return Regex.regexIdVilla(REGEX_STR);
     }
 }

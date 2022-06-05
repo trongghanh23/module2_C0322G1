@@ -125,34 +125,35 @@ public class ReadAndWriteCharacter {
         String[] arr=null ;
         for (String str : list) {
             arr = str.split(",");
-            villaList.put(new Villa(Integer.parseInt(arr[0]), arr[1], Double.parseDouble(arr[2]),Double.parseDouble(arr[3]), Integer.parseInt(arr[4]), Double.parseDouble(arr[5]), arr[6],Double.parseDouble(arr[7]), Integer.parseInt(arr[8])),0);
+            villaList.put(new Villa(arr[0], arr[1], Double.parseDouble(arr[2]),Double.parseDouble(arr[3]), Integer.parseInt(arr[4]), arr[5], arr[6],Double.parseDouble(arr[7]), Integer.parseInt(arr[8])),0);
 
         }
         return villaList;
     }
 
-//    public static Map<House,Integer> readHouse(String path) {
-//        List<String> list = readFile(path);
-//        Map<House,Integer> houseList = new LinkedHashMap<>();
-//        String[] arr ;
-//        for (String str : list) {
-//            arr = str.split(",");
-//            houseList.put(new House(Integer.parseInt(arr[0]), arr[1], Double.parseDouble(arr[2]),Double.parseDouble(arr[3]), Integer.parseInt(arr[4]),arr[5],Integer.parseInt(arr[6])),0);
-//
-//        }
-//        return houseList;
-//    }
+    public static Map<House,Integer> readHouse(String path) {
+        List<String> list = readFile(path);
+        Map<House,Integer> houseList = new LinkedHashMap<>();
+        String[] arr=null ;
+        for (String str : list) {
+            arr = str.split(",");
+            houseList.put(new House(arr[0], arr[1], Double.parseDouble(arr[2]),Double.parseDouble(arr[3]), Integer.parseInt(arr[4]), arr[5], arr[6],Integer.parseInt(arr[7])),0);
 
-//    public static Map<Room,Integer> readRoom(String path) {
-//        List<String> list = readFile(path);
-//        Map<Room,Integer> roomList = new LinkedHashMap<>();
-//        String[] arr = null;
-//        for (String str : list) {
-//            arr = str.split(",");
-//            roomList.put(new Room(Integer.parseInt(arr[0]), arr[1], Double.parseDouble(arr[2]),Double.parseDouble(arr[3]), Integer.parseInt(arr[4]),arr[5]),0);
-//
-//        }
-//        return roomList;
-//    }
+        }
+        return houseList;
+    }
+
+
+    public static Map<Room,Integer> readRoom(String path) {
+        List<String> list = readFile(path);
+        Map<Room,Integer> roomList = new LinkedHashMap<>();
+        String[] arr = null;
+        for (String str : list) {
+            arr = str.split(",");
+            roomList.put(new Room(arr[0], arr[1], Double.parseDouble(arr[2]),Double.parseDouble(arr[3]), Integer.parseInt(arr[4]),arr[5],arr[6]),0);
+
+        }
+        return roomList;
+    }
 }
 
