@@ -30,7 +30,7 @@ public class House extends Facility {
                 + super.getNumberPerson() + ","
                 + super.getRentalType() + ","
                 + this.getRoomStandard() + ","
-                + this.getNumberFloors() ;
+                + this.getNumberFloors();
 
     }
 
@@ -56,7 +56,7 @@ public class House extends Facility {
         return "House{" +
                 "roomStandard='" + roomStandard + '\'' +
                 ", numberFloors=" + numberFloors +
-                super.toString()+
+                super.toString() +
                 '}';
     }
 }

@@ -57,7 +57,7 @@ public class Villa extends Facility {
                 + super.getRentalType() + ","
                 + this.getRoomStandard() + ","
                 + this.getSwimmingPoolArea() + ","
-                + this.getNumberFloors() ;
+                + this.getNumberFloors();
     }
 
     @Override
@@ -66,7 +66,7 @@ public class Villa extends Facility {
                 "roomStandard='" + roomStandard + '\'' +
                 ", swimmingPoolArea=" + swimmingPoolArea +
                 ", numberFloors=" + numberFloors +
-                super.toString()+
+                super.toString() +
                 '}';
     }
 }

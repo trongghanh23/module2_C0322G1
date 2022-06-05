@@ -118,13 +118,13 @@ public class FuramaController {
                 "2. Add new facility\n" +
                 "3. Display list facility maintenance\n" +
                 "4. Return main menu\n");
-        int check =CheckException.checkparseInt();
+        int check = CheckException.checkparseInt();
         switch (check) {
             case 1:
                 iFacilityService.display();
                 break;
             case 2:
-               addNewFacility();
+                addNewFacility();
                 break;
             case 3:
                 break;
@@ -142,7 +142,7 @@ public class FuramaController {
                 "3. add new room\n" +
                 "4. back to menu\n");
         System.out.println("choose");
-        int check =CheckException.checkparseInt();
+        int check = CheckException.checkparseInt();
         switch (check) {
             case 1:
                 iFacilityService.addNewVilla();

@@ -69,7 +69,7 @@ public class FacilityServiceImpl implements IFacilityService {
         System.out.println("Nhập loại thuê: ");
         int type = Integer.parseInt(Regex.inputStandardVilla());
         System.out.println("nhập kiểu phòng");
-        String room= Regex.inputName();
+        String room = Regex.inputName();
 
         System.out.println("nhập diện tích hồ bơi");
         Double pool = Double.parseDouble(Regex.inputAreaPool());
@@ -108,7 +108,7 @@ public class FacilityServiceImpl implements IFacilityService {
         String type = Regex.inputName();
 
         System.out.println("nhập diện tích hồ bơi");
-       double pool=Double.parseDouble(Regex.inputAreaPool());
+        double pool = Double.parseDouble(Regex.inputAreaPool());
 
         System.out.println("nhập số tầng");
         int num = Integer.parseInt(Regex.inputFloor());
@@ -116,14 +116,15 @@ public class FacilityServiceImpl implements IFacilityService {
         System.out.println("nhập giá thue");
         int acrea = Integer.parseInt(Regex.inputRentalPrice());
 
-       House house=new House(id,name,area,pool,acrea,person,type,num);
-       houses.put(house,0);
-       ReadAndWriteCharacter.writeHouse(PATH_HOUSE,houses);
+        House house = new House(id, name, area, pool, acrea, person, type, num);
+        houses.put(house, 0);
+        ReadAndWriteCharacter.writeHouse(PATH_HOUSE, houses);
 
         System.out.println("Success added!");
 
 
     }
+
     @Override
     public void addNewRoom() {
         rooms = ReadAndWriteCharacter.readRoom(PATH_ROOM);
@@ -150,8 +151,8 @@ public class FacilityServiceImpl implements IFacilityService {
         System.out.println("nhập giá thue");
         Double acrea = Double.parseDouble(Regex.inputRentalPrice());
 
-        Room  room=new Room(id,name,area,acrea,person,type,num);
-        rooms.put(room,0);
+        Room room = new Room(id, name, area, acrea, person, type, num);
+        rooms.put(room, 0);
 
         ReadAndWriteCharacter.writeRoom(PATH_ROOM, rooms);
 

@@ -35,14 +35,14 @@ Room extends Facility {
                 + super.getRental() + ","
                 + super.getNumberPerson() + ","
                 + super.getRentalType() + ","
-                + this.getService() ;
+                + this.getService();
     }
 
     @Override
     public String toString() {
         return "Room{" +
                 "service='" + service + '\'' +
-                super.toString()+
+                super.toString() +
                 '}';
     }
 }

@@ -17,6 +17,7 @@ public class Regex {
     private static final String REGEX_AREA = "^([3-9]\\d)|([1-9]\\d{2,})$";
     private static final String REGEX_INT = "^[1-9]{1,}$";
     private static final String REGEX_PEOPLE = "^[1-9]|([1][0-9])|(20)$";
+
     public static String regexData(String temp, String regex, String error) {
         boolean check = true;
         do {

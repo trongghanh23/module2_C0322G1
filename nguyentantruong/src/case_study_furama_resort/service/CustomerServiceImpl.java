@@ -16,7 +16,6 @@ public class CustomerServiceImpl implements ICustomerService {
     private static final String PATH_CUSTOMER = "src/case_study_furama_resort/data/customer.csv";
 
 
-
     @Override
     public void display() {
         customerList = ReadAndWriteCharacter.readCustomer(PATH_CUSTOMER);

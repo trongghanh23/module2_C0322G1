@@ -11,7 +11,7 @@ public class Booking {
     public Booking() {
     }
 
-    public  Booking(int idBooking, String dayStart, String dayEnd, String idCustomer, String nameService, String typeService) {
+    public Booking(int idBooking, String dayStart, String dayEnd, String idCustomer, String nameService, String typeService) {
         this.idBooking = idBooking;
         this.dayStart = dayStart;
         this.dayEnd = dayEnd;
