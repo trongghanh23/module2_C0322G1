@@ -97,18 +97,20 @@ public class ManageEmployeeImpl implements Employee {
 
         if (check) {
             System.out.println("Do you want to remove employee ID: " + delIdEmployee);
-            System.out.println("Choose yes or no");
-            String result = scanner.nextLine();
+            System.out.println("Choose yes or no\n" +
+                    "1. yes\n" +
+                    "2. no\n");
+            int result = Integer.parseInt(scanner.nextLine());
 
             switch (result) {
-                case "yes":
+                case 1:
                     manageEmployeeList.remove(index);
                     System.out.println("Remove successful.");
 
                     ReadAndWriteCharacter.writeManageEmployee(PATH_MANAGE, manageEmployeeList);
                     display();
                     break;
-                case "no":
+                case 2:
                     return;
                 default:
                     System.out.println("Input wrong!");

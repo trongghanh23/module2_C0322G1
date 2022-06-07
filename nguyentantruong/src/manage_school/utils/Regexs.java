@@ -1,18 +1,8 @@
-package ManageComputer.utils;
+package manage_school.utils;
 
 import java.util.Scanner;
 
-public class Regex {
-    public static void main(String[] args) {
-
-        String aStr = "a";
-        char aChar = aStr.charAt(0);
-        System.out.print(aChar);
-        System.out.println('a'.equals(aChar));
-
-    }
-
-
+public class Regexs {
     static Scanner scanner = new Scanner(System.in);
 
     public static String regexData(String temp, String regex, String error) {
@@ -27,4 +17,5 @@ public class Regex {
         } while (check);
         return temp;
     }
+
 }

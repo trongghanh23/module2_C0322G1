@@ -1,23 +1,22 @@
-package ManageComputer.modle;
+package manage_school.modle;
 
 import java.time.LocalDate;
 
-public abstract class Employees {
+public abstract class Persons {
     private int id;
-    private String employeeCode;
     private String name;
-    private LocalDate birthDay;
+    private String gender;
+    private LocalDate birthday;
     private String address;
 
-
-    public Employees() {
+    public Persons() {
     }
 
-    public Employees(int id, String employeeCode, String name, LocalDate birthDay, String address) {
+    public Persons(int id, String name, String gender, LocalDate birthday, String address) {
         this.id = id;
-        this.employeeCode = employeeCode;
         this.name = name;
-        this.birthDay = birthDay;
+        this.gender = gender;
+        this.birthday = birthday;
         this.address = address;
     }
 
@@ -29,14 +28,6 @@ public abstract class Employees {
         this.id = id;
     }
 
-    public String getEmployeeCode() {
-        return employeeCode;
-    }
-
-    public void setEmployeeCode(String employeeCode) {
-        this.employeeCode = employeeCode;
-    }
-
     public String getName() {
         return name;
     }
@@ -45,12 +36,20 @@ public abstract class Employees {
         this.name = name;
     }
 
-    public LocalDate getBirthDay() {
-        return birthDay;
+    public String getGender() {
+        return gender;
     }
 
-    public void setBirthDay(LocalDate birthDay) {
-        this.birthDay = birthDay;
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
     }
 
     public String getAddress() {
@@ -60,18 +59,15 @@ public abstract class Employees {
     public void setAddress(String address) {
         this.address = address;
     }
-
     public abstract String convertLine();
-
     @Override
     public String toString() {
         return "Person{" +
                 "id=" + id +
-                ", employeeCode='" + employeeCode + '\'' +
                 ", name='" + name + '\'' +
-                ", birthDay='" + birthDay + '\'' +
+                ", gender='" + gender + '\'' +
+                ", birthday=" + birthday +
                 ", address='" + address + '\'' +
                 '}';
     }
 }
-

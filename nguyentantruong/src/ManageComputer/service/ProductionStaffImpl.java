@@ -19,7 +19,6 @@ public class ProductionStaffImpl implements Employee {
 
 
     public static final String REGEX_TIME = "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[13-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$";
-    public static final String REGEX_MANAGER = "^NVQL-\\d{3}$";
     public static final String REGEX_PRODUCE = "^NVSX-\\d{3}$";
     public static final String REGEX_POSITIVE_NUMBER = "[1-9][0-9]*";
 
@@ -53,7 +52,7 @@ public class ProductionStaffImpl implements Employee {
         }
         id = max + 1;
         System.out.println("nhập mã nhân viên: ");
-        String employeeCode = Regex.regexData(scanner.nextLine(), REGEX_MANAGER, "ID manager: NVQL-XXX. Input again!");
+        String employeeCode = Regex.regexData(scanner.nextLine(), REGEX_PRODUCE, "ID manager: NVQL-XXX. Input again!");
 
         System.out.println("nhập tên nhân viên:");
         String name = scanner.nextLine();
@@ -69,6 +68,7 @@ public class ProductionStaffImpl implements Employee {
 
         System.out.println("nhập giá sản phẩm: ");
         double productPrice = Double.parseDouble(Regex.regexData(scanner.nextLine(), REGEX_POSITIVE_NUMBER, "Price product must > 0. Input again!"));
+
         ProductionStaff productionStaff = new ProductionStaff(id, employeeCode, name, birthday, address, productNumber, productPrice);
         productionStaffList.add(productionStaff);
         ReadAndWriteCharacter.writeProductionStaffs(PATH_STAFF, productionStaffList);

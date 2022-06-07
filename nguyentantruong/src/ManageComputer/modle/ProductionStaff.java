@@ -5,6 +5,7 @@ import java.time.LocalDate;
 public class ProductionStaff extends Employees {
     private int productNumber;
     private double productPrice;
+    private String staff;
 
 
     public ProductionStaff() {

@@ -5,6 +5,7 @@ import java.time.LocalDate;
 public class ManageEmployee extends Employees {
     private double basicSalary;
     private double coefficientsSalary;
+    private String manageEmployee;
 
     public ManageEmployee() {
     }
